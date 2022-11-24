@@ -14,14 +14,26 @@ public class Eva3_1_ordenamientos {
         // TODO code application logic here
         int [] arregloDatos = new int [15];
         int [] arregloSel = new int [arregloDatos.length];
+        int [] arregloIns = new int [arregloDatos.length];
+        System.out.println("ARREGLO ORIGINAL");
         llenar(arregloDatos);
         imprimir(arregloDatos);
+        System.out.println("SELECTION SORT");
         copiar(arregloDatos,arregloSel);
-        System.out.println("");
-        System.out.println("ARREGLO COPIA");
         imprimir(arregloSel);
+        double ini = System.nanoTime();
         selectionSort(arregloSel);
+        double fin = System.nanoTime();
         imprimir(arregloSel);
+        System.out.println("Selection sort = " + (fin - ini));
+        
+        System.out.println("INSERTION SORT");
+        copiar(arregloDatos, arregloIns);
+        imprimir(arregloIns);
+        ini = System.nanoTime();
+        selectionSort(arregloIns);
+        fin = System.nanoTime();
+        System.out.println("Insertion sort = " + (fin-ini));
     }
     //llenar arreglo
     public static void llenar(int [] arreglo){
@@ -80,5 +92,16 @@ public class Eva3_1_ordenamientos {
             }
             arreglo[insP] = temp;
         }
+    }
+    //QUICKSORT
+    public static void quickSort(int[] arreglo){
+        quickSortRec(arreglo, 0, arreglo.length-1);
+    }
+    private static void quickSortRec(int [] arreglo, int ini, int fin){
+        //pivote es una posicion
+        //dos indices
+        //ind_gran, busca los mayores al pivote
+        //ind_peq, busca los menores al pivote
+        //si se cruzan, se intercambia pivote con indice_peq
     }
 }
